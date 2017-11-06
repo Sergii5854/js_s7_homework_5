@@ -26,10 +26,12 @@ function gen(){
   document.getElementById("all").appendChild(newLi);
   //
   var newButton = document.createElement("button");
-  var newButton1 = document.createTextNode(" x ");
-  newButton.appendChild(newButton1);
+  var buttonTrash = document.createTextNode('')
+
+  newButton.appendChild(buttonTrash);
   newLi.appendChild(newButton);
   newButton.setAttribute("onclick", "Del(" + i + ")");
+  newButton.innerHTML= '<i class="fa fa-trash" aria-hidden="true"></i>';
 
   i++;
 };
