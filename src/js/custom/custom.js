@@ -12,7 +12,7 @@ function addText(id) {
   /*document.getElementById(id).innerHTML = text + "...";*/
 };
 
-function gen(){
+document.getElementById('add').addEventListener('click', function() {
   var newLi = document.createElement("li");
   var a = document.createElement("a");
   var newLiText = document.createTextNode("Hовая заметка " + i );
@@ -34,7 +34,7 @@ function gen(){
   newButton.innerHTML= '<i class="fa fa-trash" aria-hidden="true"></i>';
 
   i++;
-};
+});
 
 function Del(i){
   document.getElementById(i).remove();
