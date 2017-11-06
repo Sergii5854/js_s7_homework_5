@@ -1,21 +1,27 @@
 .section-to-do {
   display: block;
-  margin: 0 auto;
+  margin: 30px auto;
   width: 100%;
-  max-width: 400px;
-
+  max-width: 600px;
+  box-sizing: border-box;
+  .title{
+    font-size: 50px;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+  }
   header {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     position: relative;
-    padding: 15px;
+    padding: 25px 75px 50px 30px;
     top: 0;
     left: 0;
     z-index: 5;
     background: #25b99a;
     box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
     input {
       width: 100%;
       height: 50px;
@@ -51,29 +57,18 @@
       box-shadow: none;
       outline: none;
       cursor: pointer;
-      svg {
-        width: 16px;
-        height: 16px;
 
-        position: absolute;
-        top: 50%;
-        left: 50%;
 
-        margin: -8px 0 0 -8px;
-      }
-      svg .fill {
-        fill: #25b99a;
-      }
     }
   }
 
   .container {
     width: 100%;
-    float: left;
+
     padding: 15px;
     .todo {
       width: 100%;
-      float: left;
+
     }
     .todo#todo:after,
     .todo#completed:after {
@@ -131,17 +126,42 @@
         position: absolute;
         top: 10px;
         left: 0;
-        svg {
-          width: 22px;
-          height: 22px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          margin: -11px 0 0 -11px;
-        }
+
       }
 
     }
+  }
+  .footer{
+    color: #777;
+    padding: 10px 15px;
+    height: 20px;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+
+  .todo-count {
+    display:flex;
+    justify-content: flex-start;
+    text-align: left;
+  }
+    .filters{
+      display: flex;
+      justify-content: space-between;
+      li{
+       padding: 0 10px;
+      }
+    }
+  }
+  .footer:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    overflow: hidden;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
   }
 }
 
