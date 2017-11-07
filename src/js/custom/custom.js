@@ -55,9 +55,11 @@ function renderAllList() {
   }
 }
 
-function addItemToDOM(text) {
-  console.log(text)
-  var list = document.getElementById('todo');
+function addItemToDOM(text, completed) {
+  var list = (completed) ? document.getElementById('completed'):document.getElementById('todo');
+
+ // console.log(text)
+ // var list = document.getElementById('todo');
 
   var item = document.createElement('li');
   item.innerText = text;
@@ -77,6 +79,22 @@ function addItemToDOM(text) {
   buttons.appendChild(complete);
   item.appendChild(buttons);
 
+  remove.addEventListener('click', removeItem);
+
   list.insertBefore(item, list.childNodes[0]);
 }
 
+
+function removeItem() {
+  var item = this.parentNode.parentNode;
+  var parent = item.parentNode;
+  var id = parent.id;
+  var value = item.innerText;
+  console.log('item', item, 'parent', parent, "id", id, "value" ,value )
+  if (id === 'todo') {
+    data.todo.splice(data.todo.indexOf(value), 1);
+  } else {
+    data.completed.splice(data.completed.indexOf(value), 1);
+  }
+  parent.removeChild(item);
+}
