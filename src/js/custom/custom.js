@@ -47,7 +47,9 @@ function renderAllList() {
   }
 }
 
+function addItemToDOM(text, completed) {
+  var list = (completed) ? document.getElementById('completed') : document.getElementById('todo');
 
 
-
+}
 
