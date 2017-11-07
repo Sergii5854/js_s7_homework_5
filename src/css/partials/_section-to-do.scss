@@ -66,6 +66,7 @@
     width: 100%;
 
     padding: 15px;
+
     .todo {
       width: 100%;
 
@@ -129,6 +130,15 @@
 
       }
 
+    }
+    #todo{
+
+    }
+    #completed{
+        display: none;
+    }
+    #all{
+      display: none;
     }
   }
   .footer{

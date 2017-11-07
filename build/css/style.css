@@ -7755,6 +7755,10 @@ input {
         position: absolute;
         top: 10px;
         left: 0; }
+    .section-to-do .container #completed {
+      display: none; }
+    .section-to-do .container #all {
+      display: none; }
   .section-to-do .footer {
     color: #777;
     padding: 10px 15px;
