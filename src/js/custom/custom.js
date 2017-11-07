@@ -14,13 +14,15 @@ var data = {
 function addItem(value) {
   document.getElementById('item').value = '';
   data.todo.push(value);
+  renderToDoList()
 
 }
 
 document.getElementById('add').addEventListener('click', function () {
   var value = document.getElementById('item').value;
   if (value) addItem(value);
-  console.log('add item : ', value)
+  console.log('add item : ', value);
+
 
 });
 
@@ -30,10 +32,7 @@ function renderToDoList() {
     for (var i = 0; i < data.todo.length; i++) {
       var value = data.todo[i];
       console.log("renderToDoList", value, data.todo[i]);
-      var list = document.getElementById('todo');
-      var item = document.createElement('li');
-      item.innerText = value;
-      list.insertBefore(item, list.childNodes[0]);
+      addItemToDOM(value);
     }
   }
 }
@@ -56,7 +55,20 @@ function renderAllList() {
   }
 }
 
+function addItemToDOM(text) {
+  console.log(text)
+  var list = document.getElementById('todo');
+
+  var item = document.createElement('li');
+  item.innerText = text;
+
+  var buttons = document.createElement('div');
+  buttons.classList.add('buttons');
 
 
 
+
+
+  list.insertBefore(item, list.childNodes[0]);
+}
 
