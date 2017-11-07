@@ -132,13 +132,23 @@
 
     }
     #todo{
-
+      display: none;
     }
     #completed{
         display: none;
     }
     #all{
       display: none;
+    }
+
+    #todo.active{
+      display: block;
+    }
+    #completed.active{
+      display: block;
+    }
+    #all.active{
+      display: block;
     }
   }
   .footer{

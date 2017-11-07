@@ -21,10 +21,9 @@ function addItem(value) {
 document.getElementById('add').addEventListener('click', function () {
   var value = document.getElementById('item').value;
   if (value) addItem(value);
-  console.log('add item : ', value);
 });
 
-document.getElementById('item').addEventListener('keydown', function (e) {
+document.getElementById('item').addEventListener('keypress', function (e) {
   var value = this.value;
   if (e.code === 'Enter' && value) {
     addItem(value);
@@ -129,7 +128,12 @@ function removeItem() {
 }
 
 
-var completedUl =  document.getElementById('completed');
-completedUl.addEventListener('click', function () {
-  console.log('true')
+document.getElementById('filters').addEventListener("click",function(e) {
+
+  var target = e.target;
+  if (target.tagName === 'A') {
+    var data = e.target.attributes.getNamedItem('data-name').value;
+    document.querySelector('.active').classList.remove('active');
+    document.getElementById(data).classList.add("active");
+  }
 });
