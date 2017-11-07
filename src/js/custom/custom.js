@@ -22,8 +22,13 @@ document.getElementById('add').addEventListener('click', function () {
   var value = document.getElementById('item').value;
   if (value) addItem(value);
   console.log('add item : ', value);
+});
 
-
+document.getElementById('item').addEventListener('keydown', function (e) {
+  var value = this.value;
+  if (e.code === 'Enter' && value) {
+    addItem(value);
+  }
 });
 
 function renderToDoList() {
