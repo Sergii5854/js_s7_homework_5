@@ -65,9 +65,17 @@ function addItemToDOM(text) {
   var buttons = document.createElement('div');
   buttons.classList.add('buttons');
 
+  var remove = document.createElement('button');
+  remove.classList.add('remove');
+  remove.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
 
+  var complete = document.createElement('button');
+  complete.classList.add('complete');
+  complete.innerHTML = '<i class="fa fa-check-circle-o" aria-hidden="true"></i>';
 
-
+  buttons.appendChild(remove);
+  buttons.appendChild(complete);
+  item.appendChild(buttons);
 
   list.insertBefore(item, list.childNodes[0]);
 }
