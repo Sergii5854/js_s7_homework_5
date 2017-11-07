@@ -4,31 +4,40 @@ console.info("home work 5 v1.1");
 
 
 var data = {
-  todo: [],
+  todo: ["test"],
   all: [],
   completed: []
 
-}
+};
+
 
 function addItem(value) {
   document.getElementById('item').value = '';
   data.todo.push(value);
+
 }
 
 document.getElementById('add').addEventListener('click', function () {
   var value = document.getElementById('item').value;
   if (value) addItem(value);
+  console.log('add item : ', value)
+
 });
 
 function renderToDoList() {
-  if (!data.todo.length) {
+  if (data.todo.length >=0 ) {
+    console.log("data.todo.length", data.todo.length)
     for (var i = 0; i < data.todo.length; i++) {
       var value = data.todo[i];
-
+      console.log("renderToDoList", value, data.todo[i]);
+      var list = document.getElementById('todo');
+      var item = document.createElement('li');
+      item.innerText = value;
+      list.insertBefore(item, list.childNodes[0]);
     }
   }
 }
-
+renderToDoList();
 function renderCompletedList() {
   if (!data.completed.length) {
     for (var j = 0; j < data.completed.length; j++) {
@@ -47,9 +56,7 @@ function renderAllList() {
   }
 }
 
-function addItemToDOM(text, completed) {
-  var list = (completed) ? document.getElementById('completed') : document.getElementById('todo');
 
 
-}
+
 
