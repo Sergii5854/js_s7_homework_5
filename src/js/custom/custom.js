@@ -1,7 +1,4 @@
 console.info("home work 5 v1.1");
-//https://codepen.io/xmark/pen/ogGXmP
-//https://www.youtube.com/watch?v=2wCpkOk2uCg&t=3111shttps://www.youtube.com/watch?v=2wCpkOk2uCg&t=3111s
-
 
 var data = {
   todo: ["test"],
@@ -129,7 +126,6 @@ function removeItem() {
 
 
 document.getElementById('filters').addEventListener("click",function(e) {
-
   var target = e.target;
   if (target.tagName === 'A') {
     var data = e.target.attributes.getNamedItem('data-name').value;
@@ -137,3 +133,16 @@ document.getElementById('filters').addEventListener("click",function(e) {
     document.getElementById(data).classList.add("active");
   }
 });
+
+document.getElementById('clear').addEventListener("click",function() {
+ data.todo = [];
+  data.all = [];
+  data.completed = [];
+  document.getElementById('completed').innerHTML = "";
+});
+
+
+//https://github.com/themaxsandelin/todo/blob/master/resources/js/main.js
+
+//https://codepen.io/xmark/pen/ogGXmP
+//https://www.youtube.com/watch?v=2wCpkOk2uCg&t=3111shttps://www.youtube.com/watch?v=2wCpkOk2uCg&t=3111s
