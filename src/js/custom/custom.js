@@ -21,12 +21,13 @@ document.getElementById('add').addEventListener('click', function() {
   if (value) addItem(value);
 });
 
-
+function renderTodoList() {
   if (!data.todo.length ) {
     for (var i = 0; i < data.todo.length; i++) {
       var value = data.todo[i];
     }
   }
+}
 
 
 
