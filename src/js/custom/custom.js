@@ -1,8 +1,7 @@
-
 var data = {
-  todo: ['write toDo list ', 'checked todo list'],
+  todo: ['checked todo list'],
   all: [],
-  completed: []
+  completed: ['write toDo list ']
 };
 
 function addItem(value) {
@@ -18,7 +17,7 @@ document.getElementById('add').addEventListener('click', function () {
 
 document.getElementById('item').addEventListener('keypress', function (e) {
   var value = this.value;
-  if (e.code === 'Enter' && value)   addItem(value);
+  if (e.code === 'Enter' && value) addItem(value);
 });
 
 function renderToDoList() {

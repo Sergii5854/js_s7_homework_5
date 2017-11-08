@@ -4,13 +4,13 @@
   width: 100%;
   max-width: 600px;
   box-sizing: border-box;
-  .title{
+  .title {
     font-size: 50px;
     font-weight: 100;
     text-align: center;
     color: rgba(175, 47, 47, 0.15);
   }
-  .title-list{
+  .title-list {
     font-size: 25px;
     font-weight: 100;
     text-align: center;
@@ -64,7 +64,6 @@
       outline: none;
       cursor: pointer;
 
-
     }
   }
 
@@ -103,7 +102,7 @@
       padding: 14px 100px 14px 14px;
       word-break: break-word;
     }
-    li.active{
+    li.active {
       background: rgba(37, 185, 154, 0.27);
       box-shadow: 0px 2px 4px rgb(44, 62, 80);
       text-decoration: line-through;
@@ -144,27 +143,27 @@
       }
 
     }
-    #todo{
+    #todo {
       display: none;
     }
-    #completed{
-        display: none;
+    #completed {
+      display: none;
     }
-    #all{
+    #all {
       display: none;
     }
 
-    #todo.active{
+    #todo.active {
       display: block;
     }
-    #completed.active{
+    #completed.active {
       display: block;
     }
-    #all.active{
+    #all.active {
       display: block;
     }
   }
-  .footer{
+  .footer {
     color: #777;
     padding: 10px 15px;
     height: 20px;
@@ -173,16 +172,16 @@
     display: flex;
     justify-content: space-between;
 
-  .todo-count {
-    display:flex;
-    justify-content: flex-start;
-    text-align: left;
-  }
-    .filters{
+    .todo-count {
+      display: flex;
+      justify-content: flex-start;
+      text-align: left;
+    }
+    .filters {
       display: flex;
       justify-content: space-between;
-      li{
-       padding: 0 10px;
+      li {
+        padding: 0 10px;
       }
     }
   }
@@ -197,15 +196,14 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
   }
 
-
-  .fa-plus:hover{
-    color:#25b99a;
+  .fa-plus:hover {
+    color: #25b99a;
   }
-  .fa-trash:hover{
+  .fa-trash:hover {
     color: red;
   }
-  .fa-check-circle-o:hover{
-    color:#25b99a;
+  .fa-check-circle-o:hover {
+    color: #25b99a;
   }
 }
 
