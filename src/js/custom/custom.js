@@ -36,7 +36,7 @@ function renderToDoList() {
   }
 }
 renderToDoList();
-countToDoItems()
+countToDoItems();
 
 function renderAllList() {
   if (data.all.length >=0 ) {
@@ -60,7 +60,6 @@ console.log(text, completed, all)
   }  else {
     list = document.getElementById('todo')
   }
-
 
   var item = document.createElement('li');
   item.innerText = text;
@@ -128,10 +127,24 @@ document.getElementById('filters').addEventListener("click",function(e) {
   if (target.tagName === 'A') {
     var data = e.target.attributes.getNamedItem('data-name').value;
     document.querySelector('.active').classList.remove('active');
-    document.getElementById(data).classList.add("active");
+
+    if(data == 'all'){
+      console.log(data, target)
+     document.getElementById("todo").classList.add("active");
+      document.getElementById("completed").classList.add("active");
+
+    }else{
+      document.getElementById(data).classList.add("active");
+    }
   }
 });
+document.getElementById('alllists').addEventListener("click",function() {
+  //data.all = [];
+  //document.getElementById('all').innerHTML = "";
+ // data.all = data.todo.concat(data.completed);
 
+  //renderAllList()
+});
 document.getElementById('clear').addEventListener("click",function() {
   data.todo = [];
   data.all = [];
@@ -139,13 +152,7 @@ document.getElementById('clear').addEventListener("click",function() {
   document.getElementById('completed').innerHTML = "";
 });
 
-document.getElementById('alllists').addEventListener("click",function() {
-  data.all = [];
-  document.getElementById('all').innerHTML = "";
-  data.all = data.todo.concat(data.completed);
 
-  renderAllList()
-});
 
 function countToDoItems(){
   return   document.getElementById('todo-count').innerHTML = data.todo.length;
