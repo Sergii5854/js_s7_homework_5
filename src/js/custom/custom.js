@@ -27,25 +27,40 @@ document.getElementById('item').addEventListener('keypress', function (e) {
 });
 
 function renderToDoList() {
-  if (data.todo.length >=0 ) {
+  if (data.todo.length >= 0 ) {
     console.log("data.todo.length", data.todo.length)
     for (var i = 0; i < data.todo.length; i++) {
       var value = data.todo[i];
       console.log("renderToDoList", value, data.todo[i]);
-      addItemToDOM(value);
+      addItemToDOM(value, false, false);
     }
   }
 }
 renderToDoList();
 
+function renderAllList() {
+  if (data.all.length >=0 ) {
+    console.log("data.all.length", data.all.length)
+    for (var j = 0; j < data.all.length; j++) {
+      var value = data.all[j];
+      console.log("renderAllList", value, data.all[j]);
+      addItemToDOM(value, false, true);
+    }
+  }
+}
 
+function addItemToDOM(text, completed, all) {
+console.log(text, completed, all)
+  var list ;
+  if (completed) {
+    console.log(completed)
+    list = document.getElementById('completed')
+  }  else if(all){
+    list = document.getElementById('all')
+  }  else {
+    list = document.getElementById('todo')
+  }
 
-
-function addItemToDOM(text, completed) {
-  var list = (completed) ? document.getElementById('completed'):document.getElementById('todo');
-
- // console.log(text)
- // var list = document.getElementById('todo');
 
   var item = document.createElement('li');
   item.innerText = text;
@@ -85,8 +100,6 @@ function completeItem() {
     data.todo.push(value);
   }
 
-
-  // Check if the item should be added to the completed list or to re-added to the todo list
   var target = (id === 'todo') ? document.getElementById('completed'):document.getElementById('todo');
 
   parent.removeChild(item);
@@ -120,10 +133,18 @@ document.getElementById('filters').addEventListener("click",function(e) {
 });
 
 document.getElementById('clear').addEventListener("click",function() {
- data.todo = [];
+  data.todo = [];
   data.all = [];
   data.completed = [];
   document.getElementById('completed').innerHTML = "";
+});
+
+document.getElementById('alllists').addEventListener("click",function() {
+  data.all = [];
+  document.getElementById('all').innerHTML = "";
+  data.all = data.todo.concat(data.completed);
+
+  renderAllList()
 });
 
 
