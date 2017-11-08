@@ -64,7 +64,8 @@
 
   .container {
     width: 100%;
-
+    display: flex;
+    height: auto;
     padding: 15px;
 
     .todo {
@@ -87,7 +88,6 @@
       font-weight: 500;
       color: #444;
       line-height: 22px;
-
       background: #fff;
       border-radius: 5px;
       position: relative;
@@ -95,6 +95,12 @@
       margin: 0 0 10px 0;
       padding: 14px 100px 14px 14px;
       word-break: break-word;
+    }
+    li.active{
+      background: rgba(37, 185, 154, 0.27);
+      box-shadow: 0px 2px 4px rgb(44, 62, 80);
+      text-decoration: line-through;
+
     }
     li:last-of-type {
       margin: 0;
@@ -182,6 +188,17 @@
     height: 50px;
     overflow: hidden;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .fa-plus:hover{
+    color:#25b99a;
+  }
+  .fa-trash:hover{
+    color: red;
+  }
+  .fa-check-circle-o:hover{
+    color:#25b99a;
   }
 }
 

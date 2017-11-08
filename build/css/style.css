@@ -7704,6 +7704,10 @@ input {
       cursor: pointer; }
   .section-to-do .container {
     width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: auto;
     padding: 15px; }
     .section-to-do .container .todo {
       width: 100%; }
@@ -7729,6 +7733,10 @@ input {
       margin: 0 0 10px 0;
       padding: 14px 100px 14px 14px;
       word-break: break-word; }
+    .section-to-do .container li.active {
+      background: rgba(37, 185, 154, 0.27);
+      box-shadow: 0px 2px 4px #2c3e50;
+      text-decoration: line-through; }
     .section-to-do .container li:last-of-type {
       margin: 0; }
     .section-to-do .container .buttons {
@@ -7805,5 +7813,11 @@ input {
     height: 50px;
     overflow: hidden;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2); }
+  .section-to-do .fa-plus:hover {
+    color: #25b99a; }
+  .section-to-do .fa-trash:hover {
+    color: red; }
+  .section-to-do .fa-check-circle-o:hover {
+    color: #25b99a; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,11 +1,10 @@
 console.info("home work 5 v1.1");
 
 var data = {
-  todo: ["test"],
+  todo: ['write toDo list ', 'checked todo list'],
   all: [],
   completed: []
 };
-
 
 function addItem(value) {
   document.getElementById('item').value = '';
@@ -37,6 +36,7 @@ function renderToDoList() {
   }
 }
 renderToDoList();
+countToDoItems()
 
 function renderAllList() {
   if (data.all.length >=0 ) {
@@ -84,6 +84,7 @@ console.log(text, completed, all)
   remove.addEventListener('click', removeItem);
 
   list.insertBefore(item, list.childNodes[0]);
+  countToDoItems()
 }
 
 function completeItem() {
@@ -91,7 +92,7 @@ function completeItem() {
   var parent = item.parentNode;
   var id = parent.id;
   var value = item.innerText;
-  console.log('item', item, 'parent', parent, "id", id, "value" ,value )
+    item.classList.toggle("active")
   if (id === 'todo') {
     data.todo.splice(data.todo.indexOf(value), 1);
     data.completed.push(value);
@@ -99,11 +100,13 @@ function completeItem() {
     data.completed.splice(data.completed.indexOf(value), 1);
     data.todo.push(value);
   }
-
   var target = (id === 'todo') ? document.getElementById('completed'):document.getElementById('todo');
 
   parent.removeChild(item);
   target.insertBefore(item, target.childNodes[0]);
+
+
+  countToDoItems();
 }
 
 function removeItem() {
@@ -111,17 +114,14 @@ function removeItem() {
   var parent = item.parentNode;
   var id = parent.id;
   var value = item.innerText;
-  console.log('item', item, 'parent', parent, "id", id, "value" ,value )
   if (id === 'todo') {
     data.todo.splice(data.todo.indexOf(value), 1);
   } else {
     data.completed.splice(data.completed.indexOf(value), 1);
   }
-
-
   parent.removeChild(item);
+  countToDoItems()
 }
-
 
 document.getElementById('filters').addEventListener("click",function(e) {
   var target = e.target;
@@ -147,8 +147,13 @@ document.getElementById('alllists').addEventListener("click",function() {
   renderAllList()
 });
 
+function countToDoItems(){
+  return   document.getElementById('todo-count').innerHTML = data.todo.length;
+}
+
+
+
 
 //https://github.com/themaxsandelin/todo/blob/master/resources/js/main.js
-
 //https://codepen.io/xmark/pen/ogGXmP
 //https://www.youtube.com/watch?v=2wCpkOk2uCg&t=3111shttps://www.youtube.com/watch?v=2wCpkOk2uCg&t=3111s
