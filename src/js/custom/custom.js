@@ -4,14 +4,13 @@ var data = {
   todo: ["test"],
   all: [],
   completed: []
-
 };
 
 
 function addItem(value) {
   document.getElementById('item').value = '';
   data.todo.push(value);
-  renderToDoList()
+  addItemToDOM(value)
 
 }
 
@@ -38,23 +37,9 @@ function renderToDoList() {
   }
 }
 renderToDoList();
-function renderCompletedList() {
-  if (!data.completed.length) {
-    for (var j = 0; j < data.completed.length; j++) {
-      var value = data.completed[j];
 
-    }
-  }
-}
 
-function renderAllList() {
-  if (!data.all.length) {
-    for (var k = 0; k < data.all.length; k++) {
-      var value = data.all[k];
 
-    }
-  }
-}
 
 function addItemToDOM(text, completed) {
   var list = (completed) ? document.getElementById('completed'):document.getElementById('todo');
