@@ -12,12 +12,16 @@ function addItem(value) {
 
 document.getElementById('add').addEventListener('click', function () {
   var value = document.getElementById('item').value;
-  if (value) addItem(value);
+  if (value) {
+    addItem(value);
+  }
 });
 
 document.getElementById('item').addEventListener('keypress', function (e) {
   var value = this.value;
-  if (e.code === 'Enter' && value) addItem(value);
+  if (e.code === 'Enter' && value) {
+    addItem(value);
+  }
 });
 
 function renderToDoList() {
@@ -29,12 +33,12 @@ function renderToDoList() {
   }
 }
 renderToDoList();
+
 countToDoItems();
 
 function addItemToDOM(text, completed, all) {
   var list;
   if (completed) {
-
     list = document.getElementById('completed')
   } else if (all) {
     list = document.getElementById('all')
@@ -72,23 +76,26 @@ function completeItem() {
   var parent = item.parentNode;
   var id = parent.id;
   var value = item.innerText;
+
   item.classList.toggle("active");
 
+  var target;
   if (id === 'todo') {
     data.todo.splice(data.todo.indexOf(value), 1);
     data.completed.push(value);
+    target =  document.getElementById('completed');
   } else {
     data.completed.splice(data.completed.indexOf(value), 1);
     data.todo.push(value);
+    target = document.getElementById('todo');
   }
-
-  var target = (id === 'todo') ? document.getElementById('completed') : document.getElementById('todo');
 
   parent.removeChild(item);
   target.insertBefore(item, target.childNodes[0]);
 
   countToDoItems();
 }
+
 
 function removeItem() {
   var item = this.parentNode.parentNode;
@@ -108,14 +115,21 @@ document.getElementById('filters').addEventListener("click", function (e) {
   var target = e.target;
 
   if (target.tagName === 'A') {
-    var data = e.target.attributes.getNamedItem('data-name').value;
-    document.querySelector('.active').classList.remove('active');
 
-    if (data == 'all') {
-      document.getElementById("todo").classList.add("active");
-      document.getElementById("completed").classList.add("active");
-    } else {
-      document.getElementById(data).classList.add("active");
+    var data = e.target.attributes.getNamedItem('data-name').value;
+
+    document.querySelector('.selected').classList.remove('selected');
+    e.target.classList.add("selected");
+
+      if (data == 'all') {
+        document.getElementById("todo").classList.add("active");
+        document.getElementById("completed").classList.add("active");
+      } else if (data == 'todo') {
+        document.getElementById("completed").classList.remove('active');
+        document.getElementById(data).classList.add("active");
+      } else {
+        document.querySelector('.active').classList.remove('active');
+        document.getElementById(data).classList.add("active");
     }
   }
 });

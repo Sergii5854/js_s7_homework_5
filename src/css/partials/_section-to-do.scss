@@ -68,45 +68,65 @@
   }
   .nav {
     border-bottom-right-radius: 25px;
-    // border-bottom-left-radius: 25px;
+
     padding: 10px 15px;
     border-top: 1px solid #e6e6e6;
-    //flex-wrap: wrap;
-    //flex: 1 1 100px;
-    //justify-content: space-between;
 
     .todo-count {
-      //flex:1 1 70px;
-      //display: flex;
-      //justify-content: flex-start;
-
+      padding: 5px 0;
     }
     .filters {
-      //flex:1 1 70px;
-      //display: flex;
-      //justify-content: space-between;
       li {
         padding:0 10px;
+        a{
+          display: block;
+          position: relative;
+          padding: 5px 20px;
+          text-decoration: none;
+          transition: color .2s ease-in-out;
+        }
+        a:before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          width: 0;
+          border-bottom: solid 2px;
+        }
+        a:before {
+          left: 0;
+        }
+        a:hover {
+          color: #fff;
+        }
+
+        a:hover:before {
+          width: 100%;
+        }
+
+        a:before {
+          -webkit-transition: width .2s ease-in-out;
+          transition: width .2s ease-in-out;
+        }
+        a.selected{
+          color: #000;
+        }
+      }
+      .clear{
 
       }
+      .clear:hover{
+        cursor: pointer;
+        color: red;
+        background: white;
+      }
     }
-  }
-  .nav:before {
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 50px;
-    overflow: hidden;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
   }
 
   .container {
     width: 100%;
     display: flex;
     height: auto;
-    padding: 15px;
+    padding: 15px 0 ;
 
     .todo {
       width: 100%;
@@ -136,6 +156,7 @@
       margin: 0 0 10px 0;
       padding: 14px 100px 14px 14px;
       word-break: break-word;
+      transition: .3s;
     }
     li.active {
       background: rgba(37, 185, 154, 0.27);
@@ -145,6 +166,10 @@
     }
     li:last-of-type {
       margin: 0;
+    }
+    li:hover{
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.3), 0 6px 3px 0 rgba(0, 0, 0, 0.19);
+
     }
     .buttons {
       width: 100px;
@@ -170,13 +195,10 @@
         width: 1px;
         height: 30px;
         background: #edf0f1;
-
         position: absolute;
         top: 10px;
         left: 0;
-
       }
-
     }
     #todo {
       display: none;
@@ -190,9 +212,11 @@
 
     #todo.active {
       display: block;
+      margin: 0 10px;
     }
     #completed.active {
       display: block;
+      margin: 0 10px;
     }
     #all.active {
       display: block;
