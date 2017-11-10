@@ -83,7 +83,7 @@ function completeItem() {
   if (id === 'todo') {
     data.todo.splice(data.todo.indexOf(value), 1);
     data.completed.push(value);
-    target =  document.getElementById('completed');
+    target = document.getElementById('completed');
   } else {
     data.completed.splice(data.completed.indexOf(value), 1);
     data.todo.push(value);
@@ -114,22 +114,21 @@ function removeItem() {
 document.getElementById('filters').addEventListener("click", function (e) {
   var target = e.target;
 
-  if (target.tagName === 'A') {
-
+  if (target.tagName === 'A' && target.attributes.getNamedItem('data-name')) {
     var data = e.target.attributes.getNamedItem('data-name').value;
 
     document.querySelector('.selected').classList.remove('selected');
     e.target.classList.add("selected");
 
-      if (data == 'all') {
-        document.getElementById("todo").classList.add("active");
-        document.getElementById("completed").classList.add("active");
-      } else if (data == 'todo') {
-        document.getElementById("completed").classList.remove('active');
-        document.getElementById(data).classList.add("active");
-      } else {
-        document.querySelector('.active').classList.remove('active');
-        document.getElementById(data).classList.add("active");
+    if (data == 'all') {
+      document.getElementById("todo").classList.add("active");
+      document.getElementById("completed").classList.add("active");
+    } else if (data == 'todo') {
+      document.getElementById("completed").classList.remove('active');
+      document.getElementById(data).classList.add("active");
+    } else {
+      document.querySelector('.active').classList.remove('active');
+      document.getElementById(data).classList.add("active");
     }
   }
 });

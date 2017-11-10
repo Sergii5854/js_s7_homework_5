@@ -7708,7 +7708,7 @@ input {
       cursor: pointer; }
   .section-to-do .nav {
     border-bottom-right-radius: 25px;
-    padding: 10px 15px;
+    padding: 10px;
     border-top: 1px solid #e6e6e6; }
     .section-to-do .nav .todo-count {
       padding: 5px 0; }

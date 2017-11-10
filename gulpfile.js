@@ -47,7 +47,7 @@ gulp.task('styles', function () {
 
 });
 
-gulp.task('vendorsJs', function () {
+gulp.task('vendors', function () {
   return streamqueue({objectMode: true},
       gulp.src('./src/js/vendor/jquery-3.2.1.min.js'),
       gulp.src('./src/js/vendor/materialize.min.js'),
@@ -61,7 +61,7 @@ gulp.task('vendorsJs', function () {
 });
 
 
-gulp.task('scriptsJs', function () {
+gulp.task('script', function () {
   return streamqueue({objectMode: true},
       gulp.src('./src/js/custom/custom.js')
   )
@@ -75,7 +75,7 @@ gulp.task('scriptsJs', function () {
 });
 
 // configure which files to watch and what tasks to use on file changes
-gulp.task('watch', ['styles', 'vendorsJs', 'scriptsJs'], function () {
+gulp.task('watch', ['styles', 'vendors', 'script'], function () {
   gulp.watch('src/css/**/*.scss', ['styles']);
   gulp.watch('src/js/vendor/*.js', ['vendorJs']);
   gulp.watch('src/js/custom/*.js', ['scriptsJs']);
