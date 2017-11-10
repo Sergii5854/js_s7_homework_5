@@ -16,20 +16,20 @@
       <i class="fa fa-plus" aria-hidden="true"></i>
     </button>
   </header>
-
-  <div class="container" id="container">
-    <ul class="todo active" id="todo"><h2 class="title-list">Active todo list</h2></ul>
-    <ul class="todo" id="completed"><h2 class="title-list">Completed list</h2></ul>
-  </div>
-  <footer class="footer">
-    <span class="todo-count"><strong id="todo-count">0 </strong> items left</span>
+  <nav class="nav">
     <ul class="filters" id="filters">
       <li><a href="#/all" data-name="all" id="alllists">All</a></li>
       <li><a href="#/todo" data-name="todo">ToDo</a></li>
       <li><a href="#/completed" data-name="completed">Completed</a></li>
+      <li><a href="#/clear" class="clear" id="clear">Clear done</a></li>
+      <li><div class="todo-count"><strong id="todo-count">0 </strong> items left</div></li>
     </ul>
-    <a class="clear" id="clear">Clear</a>
-  </footer>
+  </nav>
+  <div class="container" id="container">
+    <ul class="todo active" id="todo"><h2 class="title-list">Active todo list</h2></ul>
+    <ul class="todo" id="completed"><h2 class="title-list">Completed list</h2></ul>
+  </div>
+
 
 </div>
 <script src="./build/js/vendors.min.js"></script>
