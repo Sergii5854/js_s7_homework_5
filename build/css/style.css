@@ -7654,7 +7654,7 @@ input {
   display: block;
   margin: 30px auto;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   box-sizing: border-box; }
   .section-to-do .title {
     font-size: 50px;
@@ -7668,7 +7668,7 @@ input {
     color: rgba(175, 47, 47, 0.15); }
   .section-to-do header {
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     position: relative;
     padding: 25px 75px 50px 30px;
     top: 0;

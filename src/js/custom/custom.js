@@ -1,7 +1,7 @@
 var data = {
   todo: ['checked todo list'],
   all: [],
-  completed: ['write toDo list ']
+  completed: []
 };
 
 function addItem(value) {
@@ -115,22 +115,24 @@ document.getElementById('filters').addEventListener("click", function (e) {
   var target = e.target;
 
   if (target.tagName === 'A' && target.attributes.getNamedItem('data-name')) {
-    var data = e.target.attributes.getNamedItem('data-name').value;
+    var dataName = e.target.attributes.getNamedItem('data-name').value;
 
     document.querySelector('.selected').classList.remove('selected');
     e.target.classList.add("selected");
 
-    if (data == 'all') {
+    if (dataName == 'all') {
       document.getElementById("todo").classList.add("active");
       document.getElementById("completed").classList.add("active");
-    } else if (data == 'todo') {
+    } else if (dataName == 'todo') {
       document.getElementById("completed").classList.remove('active');
-      document.getElementById(data).classList.add("active");
+      document.getElementById(dataName).classList.add("active");
     } else {
       document.querySelector('.active').classList.remove('active');
-      document.getElementById(data).classList.add("active");
+      document.getElementById(dataName).classList.add("active");
     }
   }
+
+  countToDoItems()
 });
 
 document.getElementById('clear').addEventListener("click", function () {
@@ -141,7 +143,20 @@ document.getElementById('clear').addEventListener("click", function () {
 });
 
 function countToDoItems() {
-  return document.getElementById('todo-count').innerHTML = data.todo.length;
+
+  var countToShow = document.getElementById('todo-count');
+  var dataNameList =  document.querySelector('.selected').attributes.getNamedItem('data-name').value;
+
+
+  if (dataNameList == 'all') {
+    return countToShow.innerHTML = data.todo.length + '  items undone' + '<br>' + data.completed.length + '  items done';
+  } else if (dataNameList == 'todo') {
+    return countToShow.innerHTML =data.todo.length + '  items undone';
+  } else {
+    return countToShow.innerHTML = data.completed.length + '  items done';
+  }
+
+
 }
 
 
