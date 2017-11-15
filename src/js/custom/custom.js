@@ -136,8 +136,6 @@ document.getElementById('filters').addEventListener("click", function (e) {
 });
 
 document.getElementById('clear').addEventListener("click", function () {
-  data.todo = [];
-  data.all = [];
   data.completed = [];
   document.getElementById('completed').innerHTML = "";
 });
@@ -146,7 +144,6 @@ function countToDoItems() {
 
   var countToShow = document.getElementById('todo-count');
   var dataNameList =  document.querySelector('.selected').attributes.getNamedItem('data-name').value;
-
 
   if (dataNameList == 'all') {
     return countToShow.innerHTML = data.todo.length + '  items undone' + '<br>' + data.completed.length + '  items done';
